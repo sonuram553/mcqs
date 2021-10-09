@@ -1,0 +1,33 @@
+Which code will throw Error?
+a. let name = "ABC"; name = "XYZ"
+b. const name = "ABC"; name = "XYZ"
+c. var name = "ABC"; name = "XYZ"
+d. all of the above
+Ans. b
+
+In which order the characters will get logged?
+console.log("d");
+setTimeout(() => {​​​​
+  console.log("b");
+}​​​​, 1000);
+setTimeout(() => {​​​​
+  console.log("c");
+}​​​​, 0);
+console.log("a");
+
+a. d b c a
+b. d a c b
+c. d c a b
+d. none of the above
+Ans. b
+
+What will be the output?
+var i = 0;
+for (var i = 0; i < 10; i++) {​​​​​​​​​}​​​​​​​​​​​​​​​​
+console.log(i);
+
+a. 10
+b. 9
+c. 0 
+d. undefined
+Ans. a

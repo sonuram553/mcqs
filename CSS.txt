@@ -1,0 +1,43 @@
+The CSS property used to change the text color of an HTML element is
+a. bgcolor
+b. text-color
+c. color
+d. all of the above
+Ans. c
+
+
+Which tag is used to create a check box 
+a. <input type="checkbox" />
+b. <checkbox type="input" />
+c. <input type="check" >
+d. none of the above
+Ans. a
+
+The inner most part of the CSS box model is
+a. Border
+b. Content
+c. Padding
+d. Margin
+Ans. b
+
+CSS declaration to divide a grid box in to three equal parts is
+grid-template-columns: auto auto auto
+grid-template-columns: 100px 100px 200px
+grid-template-columns: repeat(3, max-content)
+grid-template-columns: 1fr 1fr 1fr
+Ans. d
+
+CSS selector to select all <a> elements where the parent is a <section> element is
+section > a
+section + a
+a > section
+a + section
+Ans. a
+
+CSS selector to select all element with a target attribute
+[attribute="target"]
+[attribute=target]
+[target]
+none of the above
+Ans. c
+

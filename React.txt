@@ -1,0 +1,203 @@
+import React, { Component, useEffect, useState } from "react";
+
+const Card = (props) => {
+  return 
+    <h2>Title: {props.title}</h2>;
+};
+
+// What is wrong with this code?
+// a. Can't access title property
+// b. JSX is misplaced
+// c. No error
+// d. None of the above
+// Ans. b
+
+export const Person = () => {
+  const [details, setDetails] = useState({ name: "John", age: 27 });
+
+  useEffect(() => {
+    setDetails({ age: 32 });
+  }, []);
+
+  return (
+    <div>
+      {details.name} {details.age}
+    </div>
+  );
+};
+
+// Output
+// a. John 27
+// b. John 32
+// c. 32
+// d. Runtime Error
+// Ans. c
+
+export class Person2 extends Component {
+  state = { count: 0 };
+
+  componentDidMount() {
+    this.setState((state) => ({ count: state.count + 1 }));
+    this.printCount();
+  }
+
+  printCount() {
+    console.log(this.state.count + 1);
+  }
+
+  render() {
+    return <div>Person Class</div>;
+  }
+}
+
+// console.log will print
+// a. 2
+// b. 1
+// c. 0
+// d. Error
+// Ans. b
+
+// Correct way to provide a function that will be called when a component unmounts
+// useEffect(() => {
+//   return function
+// })
+
+// componentUnmount() {
+//   code to be executed when component unmounts
+// }
+
+// useUnmount(() => {
+//   return function
+// })
+
+// None
+
+// Ans. a
+
+export const Person3 = () => {
+  const [details, setDetails] = useState({ name: "John", age: 27 });
+
+  return (
+    <p>{details.name}</p>
+    <p>{details.age}</p>
+  );
+};
+
+// What will be the output
+// a. Runtime Error
+// b. Compilation Error
+// c. John 27
+// d. None of the above
+// Ans. b
+
+
+export const Counter = () => {
+  const [count, setCount] = useState(0);
+  let intervalId = null;
+
+  useEffect(() => {
+    intervalId = setInterval(() => {
+      setCount((count) => count + 1);
+    }, 1000);
+  }, []);
+
+  useEffect(() => {
+    if (count === 5) {
+      clearInterval(intervalId);
+    }
+  });
+
+  return <p>{count}</p>;
+};
+
+// Final value of count will be
+// 6
+// 5
+// 4
+// None of the above
+// Ans. d
+
+export class Test extends Component {
+  componentDidMount() {
+    document.body.addEventListener(this.onClickBody);
+  }
+
+  onClickBody = () => {
+    // code...
+  };
+
+  render() {
+    return <div>Hello world !!</div>;
+  }
+}
+
+// What is the problem with the above code?
+// Can cause memory leak
+// onClickBody callback must be binded
+// componentWillUnmount is not defined
+// None of the above
+// Ans. a
+
+
+// Which of the following is true about React.
+// a. State variable can hold array
+// b. Props are immutable
+// c. React components are not nestable
+// d. Functional components can't maintain state
+// Ans. b
+
+export class Test extends Component {
+  state = {
+    name: "John",
+  };
+
+  inputRef = React.createRef();
+
+  componentDidMount() {
+    this.inputRef.current.value = "Adam";
+    setTimeout(() => {
+      this.setState({});
+    }, 500);
+  }
+
+  render() {
+    return (
+      <form>
+        <input ref={this.inputRef} value={this.state.name} />
+      </form>
+    );
+  }
+}
+
+// What will be the final value shown in the input field
+// a. John
+// b. Adam
+// c. It will be empty
+// d. None of the above
+// Ans. a
+
+export class Test extends Component {
+  onSubmit() {
+    // code...
+  }
+
+  onChange = () => {
+    // code...
+  };
+
+  render() {
+    return (
+      <form onSubmit={this.onSubmit.bind(this)}>
+        <input onChange={this.onChange} />
+      </form>
+    );
+  }
+}
+
+// What is the error with the above code?
+// a. onSubmit method should not be bound
+// b. onChange should be bound
+// c. No Error
+// d. None of the above
+// Ans. c
+
